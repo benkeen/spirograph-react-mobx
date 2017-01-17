@@ -11,10 +11,6 @@ const getGreatestCommonDivisor = (a, b) => {
 	return a;
 }
 
-const getPointFromCenterInPixels = (innerRadiusInPixels, pointFromCenterPercentage) => {
-	return parseInt((innerRadiusInPixels / 100) * pointFromCenterPercentage, 10);
-}
-
 // const getLineTransparency = () => {
 // 	var lineTransparency = parseFloat($(this.$lineTransparency).val());
 // 	return lineTransparency.toFixed(2);
@@ -22,6 +18,5 @@ const getPointFromCenterInPixels = (innerRadiusInPixels, pointFromCenterPercenta
 
 
 export default {
-	getPointFromCenterInPixels,
 	getGreatestCommonDivisor
 };

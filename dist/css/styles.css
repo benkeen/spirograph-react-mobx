@@ -68,6 +68,10 @@ body .navbar {
 }
 #spirographs > li .canvasWrapper {
   flex: 1;
+  display: flex;
+}
+#spirographs > li .canvasWrapper canvas {
+  width: 100%;
 }
 #spirographs input[type=range] {
   width: 100%;

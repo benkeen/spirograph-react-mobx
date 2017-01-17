@@ -21,6 +21,10 @@
 
 		.canvasWrapper {
 			flex: 1;
+			display: flex;
+			canvas {
+				width: 100%;
+			}
 		}
 	}
 

@@ -20,6 +20,11 @@ class Spirograph extends React.Component {
 	// That updates the information in the panel store.
 	updateCanvasSize() {
 		const canvas = ReactDOM.findDOMNode(this.refs.spiroCanvas);
+
+		let cs = getComputedStyle(canvas);
+		canvas.height = parseInt(cs.getPropertyValue('height'), 10);
+		canvas.width = parseInt(cs.getPropertyValue('width'), 10);
+
 		this.props.updateCanvasSize({ 
 			width: canvas.width,
 			height: canvas.height
@@ -35,12 +40,20 @@ class Spirograph extends React.Component {
 	}
 
 	draw () {
-		console.log(this.props);
-
 		// meh... there's no WAY I'm storing references to this component's DOM content in the sodding store...
 		this.theta = 0;
 		this.canvas = ReactDOM.findDOMNode(this.refs.spiroCanvas);
 		this.ctx = this.canvas.getContext('2d');
+
+		this.ctx.centerX = this.canvas.width / 2;
+		this.ctx.centerY = this.canvas.height / 2;
+
+		// move the center to the middle of the canvas and invert the axis so it appears to
+		// draw the spirograph in the right order
+		this.ctx.translate(this.ctx.centerX, this.ctx.centerY);
+		this.ctx.scale(1, -1);
+
+console.log(this.props);
 
 		this.interval = setInterval(() => {
 			this.nextLine();
@@ -49,6 +62,7 @@ class Spirograph extends React.Component {
 
 	batchedLineTo () {
 		const { outerRadiusInPixels, innerRadiusInPixels, pointFromCenterInPixels } = this.props;
+
 		let val1 = this.theta * (1 - outerRadiusInPixels / innerRadiusInPixels);
 		let val2 = innerRadiusInPixels - outerRadiusInPixels;
 		let x = Math.cos(this.theta) * val2 + pointFromCenterInPixels * Math.cos(val1);
@@ -88,11 +102,13 @@ class Spirograph extends React.Component {
 		}
 	}
 
-    render () {
-        return (
-            <canvas className="spiroCanvas" ref="spiroCanvas"></canvas>
-        );
-    }
+	render () {
+//		const { canvasHeight, canvasWidth } = this.props;  
+// width={width} height={height}
+		return (
+			<canvas className="spiroCanvas" ref="spiroCanvas"></canvas>
+		);
+	}
 }
 
 

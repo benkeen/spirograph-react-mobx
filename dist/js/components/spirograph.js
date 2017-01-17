@@ -57,6 +57,11 @@ var Spirograph = function (_React$Component) {
 		key: 'updateCanvasSize',
 		value: function updateCanvasSize() {
 			var canvas = _reactDom2.default.findDOMNode(this.refs.spiroCanvas);
+
+			var cs = getComputedStyle(canvas);
+			canvas.height = parseInt(cs.getPropertyValue('height'), 10);
+			canvas.width = parseInt(cs.getPropertyValue('width'), 10);
+
 			this.props.updateCanvasSize({
 				width: canvas.width,
 				height: canvas.height
@@ -76,12 +81,20 @@ var Spirograph = function (_React$Component) {
 		value: function draw() {
 			var _this2 = this;
 
-			console.log(this.props);
-
 			// meh... there's no WAY I'm storing references to this component's DOM content in the sodding store...
 			this.theta = 0;
 			this.canvas = _reactDom2.default.findDOMNode(this.refs.spiroCanvas);
 			this.ctx = this.canvas.getContext('2d');
+
+			this.ctx.centerX = this.canvas.width / 2;
+			this.ctx.centerY = this.canvas.height / 2;
+
+			// move the center to the middle of the canvas and invert the axis so it appears to
+			// draw the spirograph in the right order
+			this.ctx.translate(this.ctx.centerX, this.ctx.centerY);
+			this.ctx.scale(1, -1);
+
+			console.log(this.props);
 
 			this.interval = setInterval(function () {
 				_this2.nextLine();
@@ -94,6 +107,7 @@ var Spirograph = function (_React$Component) {
 			    outerRadiusInPixels = _props.outerRadiusInPixels,
 			    innerRadiusInPixels = _props.innerRadiusInPixels,
 			    pointFromCenterInPixels = _props.pointFromCenterInPixels;
+
 
 			var val1 = this.theta * (1 - outerRadiusInPixels / innerRadiusInPixels);
 			var val2 = innerRadiusInPixels - outerRadiusInPixels;
@@ -144,6 +158,8 @@ var Spirograph = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			//		const { canvasHeight, canvasWidth } = this.props;  
+			// width={width} height={height}
 			return _react2.default.createElement('canvas', { className: 'spiroCanvas', ref: 'spiroCanvas' });
 		}
 	}]);

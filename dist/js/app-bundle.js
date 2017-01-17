@@ -206,7 +206,7 @@ exports.default = Header;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -236,426 +236,426 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Panels = (0, _mobxReact.observer)(_class = function (_React$Component) {
-    _inherits(Panels, _React$Component);
+	_inherits(Panels, _React$Component);
 
-    function Panels() {
-        _classCallCheck(this, Panels);
+	function Panels() {
+		_classCallCheck(this, Panels);
 
-        return _possibleConstructorReturn(this, (Panels.__proto__ || Object.getPrototypeOf(Panels)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Panels.__proto__ || Object.getPrototypeOf(Panels)).apply(this, arguments));
+	}
 
-    _createClass(Panels, [{
-        key: 'getPanels',
-        value: function getPanels() {
-            var _this2 = this;
+	_createClass(Panels, [{
+		key: 'getPanels',
+		value: function getPanels() {
+			var _this2 = this;
 
-            var panels = this.props.store.panels;
+			var panels = this.props.store.panels;
 
 
-            return _lodash2.default.map(panels, function (panel, i) {
-                return _react2.default.createElement(Panel, {
-                    key: i,
-                    onDelete: _this2.props.store.removePanel,
-                    panel: panel
-                });
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'section',
-                null,
-                _react2.default.createElement(
-                    'ol',
-                    { id: 'spirographs' },
-                    this.getPanels()
-                )
-            );
-        }
-    }]);
+			return _lodash2.default.map(panels, function (panel, i) {
+				return _react2.default.createElement(Panel, {
+					key: i,
+					onDelete: _this2.props.store.removePanel,
+					panel: panel
+				});
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'section',
+				null,
+				_react2.default.createElement(
+					'ol',
+					{ id: 'spirographs' },
+					this.getPanels()
+				)
+			);
+		}
+	}]);
 
-    return Panels;
+	return Panels;
 }(_react2.default.Component)) || _class;
 
 var Panel = (0, _mobxReact.observer)(_class2 = function (_React$Component2) {
-    _inherits(Panel, _React$Component2);
+	_inherits(Panel, _React$Component2);
 
-    function Panel() {
-        _classCallCheck(this, Panel);
+	function Panel() {
+		_classCallCheck(this, Panel);
 
-        return _possibleConstructorReturn(this, (Panel.__proto__ || Object.getPrototypeOf(Panel)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Panel.__proto__ || Object.getPrototypeOf(Panel)).apply(this, arguments));
+	}
 
-    _createClass(Panel, [{
-        key: 'getTab',
-        value: function getTab() {
-            if (this.props.panel.currTab === 'general') {
-                return _react2.default.createElement(GeneralTab, this.props);
-            } else {
-                return _react2.default.createElement(StylesTab, this.props);
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this4 = this;
+	_createClass(Panel, [{
+		key: 'getTab',
+		value: function getTab() {
+			if (this.props.panel.currTab === 'general') {
+				return _react2.default.createElement(GeneralTab, this.props);
+			} else {
+				return _react2.default.createElement(StylesTab, this.props);
+			}
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this4 = this;
 
-            var panel = this.props.panel;
-            var generalTabClass = panel.currTab === 'general' ? 'selected' : '';
-            var stylesTabClass = panel.currTab === 'styles' ? 'selected' : '';
+			var panel = this.props.panel;
+			var generalTabClass = panel.currTab === 'general' ? 'selected' : '';
+			var stylesTabClass = panel.currTab === 'styles' ? 'selected' : '';
 
-            return _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'spiro-tabs' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'spiro-controls' },
-                        _react2.default.createElement(
-                            'a',
-                            { href: '#', className: 'destroy', title: 'Close this panel', onClick: function onClick(e) {
-                                    return _this4.props.onDelete(panel.id);
-                                } },
-                            'x'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'ol',
-                        null,
-                        _react2.default.createElement(
-                            'li',
-                            { className: generalTabClass },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', onClick: function onClick(e) {
-                                        return panel.selectTab('general');
-                                    } },
-                                'General'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: stylesTabClass },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', onClick: function onClick(e) {
-                                        return panel.selectTab('styles');
-                                    } },
-                                'Styles'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'section',
-                    { className: 'tabContent' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'well' },
-                        this.getTab()
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'well well-small' },
-                    _react2.default.createElement('span', { className: 'spinner' }),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn-small btn-primary actionButton', onClick: function onClick(e) {
-                                return panel.draw();
-                            } },
-                        'Draw \xBB'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'canvasWrapper' },
-                    _react2.default.createElement(_spirograph2.default, {
-                        isDrawing: panel.isDrawing,
-                        updateCanvasSize: panel.updateCanvasSize,
-                        innerRadiusInPixels: panel.innerRadiusInPixels,
-                        outerRadiusInPixels: panel.outerRadiusInPixels,
-                        maxLoops: panel.maxLoops,
-                        lineThickness: panel.lineThickness,
-                        lineColor: panel.lineColor,
-                        lineTransparency: panel.lineTransparency,
-                        speed: panel.speed,
-                        innerCircleSizePercentage: panel.innerCircleSizePercentage,
-                        pointFromCenterPercentage: panel.pointFromCenterPercentage
-                    })
-                )
-            );
-        }
-    }]);
+			return _react2.default.createElement(
+				'li',
+				null,
+				_react2.default.createElement(
+					'div',
+					{ className: 'spiro-tabs' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'spiro-controls' },
+						_react2.default.createElement(
+							'a',
+							{ href: '#', className: 'destroy', title: 'Close this panel', onClick: function onClick(e) {
+									return _this4.props.onDelete(panel.id);
+								} },
+							'x'
+						)
+					),
+					_react2.default.createElement(
+						'ol',
+						null,
+						_react2.default.createElement(
+							'li',
+							{ className: generalTabClass },
+							_react2.default.createElement(
+								'a',
+								{ href: '#', onClick: function onClick(e) {
+										return panel.selectTab('general');
+									} },
+								'General'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							{ className: stylesTabClass },
+							_react2.default.createElement(
+								'a',
+								{ href: '#', onClick: function onClick(e) {
+										return panel.selectTab('styles');
+									} },
+								'Styles'
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					'section',
+					{ className: 'tabContent' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'well' },
+						this.getTab()
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'well well-small' },
+					_react2.default.createElement('span', { className: 'spinner' }),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn-small btn-primary actionButton', onClick: function onClick(e) {
+								return panel.draw();
+							} },
+						'Draw \xBB'
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'canvasWrapper' },
+					_react2.default.createElement(_spirograph2.default, {
+						isDrawing: panel.isDrawing,
+						updateCanvasSize: panel.updateCanvasSize,
+						innerRadiusInPixels: panel.innerRadiusInPixels,
+						outerRadiusInPixels: panel.outerRadiusInPixels,
+						maxLoops: panel.maxLoops,
+						lineThickness: panel.lineThickness,
+						lineColor: panel.lineColor,
+						lineTransparency: panel.lineTransparency,
+						speed: panel.speed,
+						innerCircleSizePercentage: panel.innerCircleSizePercentage,
+						pointFromCenterInPixels: panel.pointFromCenterInPixels
+					})
+				)
+			);
+		}
+	}]);
 
-    return Panel;
+	return Panel;
 }(_react2.default.Component)) || _class2;
 
 var GeneralTab = (0, _mobxReact.observer)(_class3 = function (_React$Component3) {
-    _inherits(GeneralTab, _React$Component3);
+	_inherits(GeneralTab, _React$Component3);
 
-    function GeneralTab() {
-        _classCallCheck(this, GeneralTab);
+	function GeneralTab() {
+		_classCallCheck(this, GeneralTab);
 
-        return _possibleConstructorReturn(this, (GeneralTab.__proto__ || Object.getPrototypeOf(GeneralTab)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (GeneralTab.__proto__ || Object.getPrototypeOf(GeneralTab)).apply(this, arguments));
+	}
 
-    _createClass(GeneralTab, [{
-        key: 'render',
-        value: function render() {
-            var panel = this.props.panel;
-            var id = panel.id,
-                innerCircleSizePercentage = panel.innerCircleSizePercentage,
-                pointFromCenterPercentage = panel.pointFromCenterPercentage,
-                speed = panel.speed;
+	_createClass(GeneralTab, [{
+		key: 'render',
+		value: function render() {
+			var panel = this.props.panel;
+			var id = panel.id,
+			    innerCircleSizePercentage = panel.innerCircleSizePercentage,
+			    pointFromCenterPercentage = panel.pointFromCenterPercentage,
+			    speed = panel.speed;
 
 
-            return _react2.default.createElement(
-                'table',
-                { className: 'table' },
-                _react2.default.createElement(
-                    'tbody',
-                    null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'innerCircleSizePercentage' + id },
-                                'Inner Circle Size'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'range', className: 'innerCircleSizePercentage', id: 'innerCircleSizePercentage' + id,
-                                value: innerCircleSizePercentage, min: '1', max: '99', onChange: function onChange(e) {
-                                    panel.setInnerCircleSizePercentage(e.target.value);
-                                } }),
-                            _react2.default.createElement(
-                                'ol',
-                                { className: 'rangeTip' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipLeft' },
-                                    'Small'
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipRight' },
-                                    'Large'
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'pointFromCenterPercentage' + id },
-                                'Point from Center'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'range', className: 'pointFromCenterPercentage', id: 'pointFromCenterPercentage' + id,
-                                value: pointFromCenterPercentage, min: '1', max: '99', onChange: function onChange(e) {
-                                    panel.setPointFromCenterPercentage(e.target.value);
-                                } }),
-                            _react2.default.createElement(
-                                'ol',
-                                { className: 'rangeTip' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipLeft' },
-                                    'Small'
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipRight' },
-                                    'Large'
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'speed' + id },
-                                'Speed'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'range', className: 'speed', id: 'speed' + id, value: speed, min: '10', max: '300',
-                                onChange: function onChange(e) {
-                                    panel.setSpeed(e.target.value);
-                                } }),
-                            _react2.default.createElement(
-                                'ol',
-                                { className: 'rangeTip' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipLeft' },
-                                    'Slow'
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipRight' },
-                                    'Fast'
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
+			return _react2.default.createElement(
+				'table',
+				{ className: 'table' },
+				_react2.default.createElement(
+					'tbody',
+					null,
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'innerCircleSizePercentage' + id },
+								'Inner Circle Size'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement('input', { type: 'range', className: 'innerCircleSizePercentage', id: 'innerCircleSizePercentage' + id,
+								value: innerCircleSizePercentage, min: '1', max: '99', onChange: function onChange(e) {
+									panel.setInnerCircleSizePercentage(e.target.value);
+								} }),
+							_react2.default.createElement(
+								'ol',
+								{ className: 'rangeTip' },
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipLeft' },
+									'Small'
+								),
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipRight' },
+									'Large'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'pointFromCenterPercentage' + id },
+								'Point from Center'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement('input', { type: 'range', className: 'pointFromCenterPercentage', id: 'pointFromCenterPercentage' + id,
+								value: pointFromCenterPercentage, min: '1', max: '99', onChange: function onChange(e) {
+									panel.setPointFromCenterPercentage(e.target.value);
+								} }),
+							_react2.default.createElement(
+								'ol',
+								{ className: 'rangeTip' },
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipLeft' },
+									'Small'
+								),
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipRight' },
+									'Large'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'speed' + id },
+								'Speed'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement('input', { type: 'range', className: 'speed', id: 'speed' + id, value: speed, min: '10', max: '300',
+								onChange: function onChange(e) {
+									panel.setSpeed(e.target.value);
+								} }),
+							_react2.default.createElement(
+								'ol',
+								{ className: 'rangeTip' },
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipLeft' },
+									'Slow'
+								),
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipRight' },
+									'Fast'
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
 
-    return GeneralTab;
+	return GeneralTab;
 }(_react2.default.Component)) || _class3;
 
 var StylesTab = (0, _mobxReact.observer)(_class4 = function (_React$Component4) {
-    _inherits(StylesTab, _React$Component4);
+	_inherits(StylesTab, _React$Component4);
 
-    function StylesTab() {
-        _classCallCheck(this, StylesTab);
+	function StylesTab() {
+		_classCallCheck(this, StylesTab);
 
-        return _possibleConstructorReturn(this, (StylesTab.__proto__ || Object.getPrototypeOf(StylesTab)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (StylesTab.__proto__ || Object.getPrototypeOf(StylesTab)).apply(this, arguments));
+	}
 
-    _createClass(StylesTab, [{
-        key: 'render',
-        value: function render() {
-            var _props$panel = this.props.panel,
-                id = _props$panel.id,
-                lineThickness = _props$panel.lineThickness,
-                lineTransparency = _props$panel.lineTransparency,
-                lineColorHex = _props$panel.lineColorHex;
+	_createClass(StylesTab, [{
+		key: 'render',
+		value: function render() {
+			var _props$panel = this.props.panel,
+			    id = _props$panel.id,
+			    lineThickness = _props$panel.lineThickness,
+			    lineTransparency = _props$panel.lineTransparency,
+			    lineColorHex = _props$panel.lineColorHex;
 
 
-            return _react2.default.createElement(
-                'table',
-                { className: 'table' },
-                _react2.default.createElement(
-                    'tbody',
-                    null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'lineThickness<%= cid %>' },
-                                'Line Thickness'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'range', className: 'lineThickness', id: 'lineThickness' + id, value: lineThickness,
-                                min: '1', step: '1', max: '10' }),
-                            _react2.default.createElement(
-                                'ol',
-                                { className: 'rangeTip' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipLeft' },
-                                    'Thin'
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipRight' },
-                                    'Thick'
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'lineTransparency' + id },
-                                'Line Transparency'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('input', { type: 'range', className: 'lineTransparency', id: 'lineTransparency' + id, value: lineTransparency,
-                                min: '0.01', step: '0.01', max: '1' }),
-                            _react2.default.createElement(
-                                'ol',
-                                { className: 'rangeTip' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipLeft' },
-                                    'Transparent'
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'rangeTipRight' },
-                                    'Solid'
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'lineColour' + id },
-                                'Line Colour'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'cpicker input-append color', 'data-color': lineColorHex, 'data-color-format': 'hex', id: 'lineColour' + id },
-                                _react2.default.createElement('input', { type: 'text', className: 'span2', value: lineColorHex }),
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: 'add-on' },
-                                    _react2.default.createElement('i', { style: { backgroundColor: lineColorHex } })
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
+			return _react2.default.createElement(
+				'table',
+				{ className: 'table' },
+				_react2.default.createElement(
+					'tbody',
+					null,
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'lineThickness<%= cid %>' },
+								'Line Thickness'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement('input', { type: 'range', className: 'lineThickness', id: 'lineThickness' + id, value: lineThickness,
+								min: '1', step: '1', max: '10' }),
+							_react2.default.createElement(
+								'ol',
+								{ className: 'rangeTip' },
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipLeft' },
+									'Thin'
+								),
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipRight' },
+									'Thick'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'lineTransparency' + id },
+								'Line Transparency'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement('input', { type: 'range', className: 'lineTransparency', id: 'lineTransparency' + id, value: lineTransparency,
+								min: '0.01', step: '0.01', max: '1' }),
+							_react2.default.createElement(
+								'ol',
+								{ className: 'rangeTip' },
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipLeft' },
+									'Transparent'
+								),
+								_react2.default.createElement(
+									'li',
+									{ className: 'rangeTipRight' },
+									'Solid'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'label',
+								{ htmlFor: 'lineColour' + id },
+								'Line Colour'
+							)
+						),
+						_react2.default.createElement(
+							'td',
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'cpicker input-append color', 'data-color': lineColorHex, 'data-color-format': 'hex', id: 'lineColour' + id },
+								_react2.default.createElement('input', { type: 'text', className: 'span2', value: lineColorHex }),
+								_react2.default.createElement(
+									'span',
+									{ className: 'add-on' },
+									_react2.default.createElement('i', { style: { backgroundColor: lineColorHex } })
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
 
-    return StylesTab;
+	return StylesTab;
 }(_react2.default.Component)) || _class4;
 
 exports.default = Panels;
@@ -721,6 +721,11 @@ var Spirograph = function (_React$Component) {
 		key: 'updateCanvasSize',
 		value: function updateCanvasSize() {
 			var canvas = _reactDom2.default.findDOMNode(this.refs.spiroCanvas);
+
+			var cs = getComputedStyle(canvas);
+			canvas.height = parseInt(cs.getPropertyValue('height'), 10);
+			canvas.width = parseInt(cs.getPropertyValue('width'), 10);
+
 			this.props.updateCanvasSize({
 				width: canvas.width,
 				height: canvas.height
@@ -740,12 +745,20 @@ var Spirograph = function (_React$Component) {
 		value: function draw() {
 			var _this2 = this;
 
-			console.log(this.props);
-
 			// meh... there's no WAY I'm storing references to this component's DOM content in the sodding store...
 			this.theta = 0;
 			this.canvas = _reactDom2.default.findDOMNode(this.refs.spiroCanvas);
 			this.ctx = this.canvas.getContext('2d');
+
+			this.ctx.centerX = this.canvas.width / 2;
+			this.ctx.centerY = this.canvas.height / 2;
+
+			// move the center to the middle of the canvas and invert the axis so it appears to
+			// draw the spirograph in the right order
+			this.ctx.translate(this.ctx.centerX, this.ctx.centerY);
+			this.ctx.scale(1, -1);
+
+			console.log(this.props);
 
 			this.interval = setInterval(function () {
 				_this2.nextLine();
@@ -758,6 +771,7 @@ var Spirograph = function (_React$Component) {
 			    outerRadiusInPixels = _props.outerRadiusInPixels,
 			    innerRadiusInPixels = _props.innerRadiusInPixels,
 			    pointFromCenterInPixels = _props.pointFromCenterInPixels;
+
 
 			var val1 = this.theta * (1 - outerRadiusInPixels / innerRadiusInPixels);
 			var val2 = innerRadiusInPixels - outerRadiusInPixels;
@@ -808,6 +822,8 @@ var Spirograph = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			//		const { canvasHeight, canvasWidth } = this.props;  
+			// width={width} height={height}
 			return _react2.default.createElement('canvas', { className: 'spiroCanvas', ref: 'spiroCanvas' });
 		}
 	}]);
@@ -881,10 +897,6 @@ var getGreatestCommonDivisor = function getGreatestCommonDivisor(a, b) {
 	return a;
 };
 
-var getPointFromCenterInPixels = function getPointFromCenterInPixels(innerRadiusInPixels, pointFromCenterPercentage) {
-	return parseInt(innerRadiusInPixels / 100 * pointFromCenterPercentage, 10);
-};
-
 // const getLineTransparency = () => {
 // 	var lineTransparency = parseFloat($(this.$lineTransparency).val());
 // 	return lineTransparency.toFixed(2);
@@ -892,7 +904,6 @@ var getPointFromCenterInPixels = function getPointFromCenterInPixels(innerRadius
 
 
 exports.default = {
-	getPointFromCenterInPixels: getPointFromCenterInPixels,
 	getGreatestCommonDivisor: getGreatestCommonDivisor
 };
 
@@ -901,7 +912,7 @@ exports.default = {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -925,223 +936,228 @@ var _utils2 = _interopRequireDefault(_utils);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _initDefineProp(target, property, descriptor, context) {
-    if (!descriptor) return;
-    Object.defineProperty(target, property, {
-        enumerable: descriptor.enumerable,
-        configurable: descriptor.configurable,
-        writable: descriptor.writable,
-        value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-    });
+	if (!descriptor) return;
+	Object.defineProperty(target, property, {
+		enumerable: descriptor.enumerable,
+		configurable: descriptor.configurable,
+		writable: descriptor.writable,
+		value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+	});
 }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-    var desc = {};
-    Object['ke' + 'ys'](descriptor).forEach(function (key) {
-        desc[key] = descriptor[key];
-    });
-    desc.enumerable = !!desc.enumerable;
-    desc.configurable = !!desc.configurable;
+	var desc = {};
+	Object['ke' + 'ys'](descriptor).forEach(function (key) {
+		desc[key] = descriptor[key];
+	});
+	desc.enumerable = !!desc.enumerable;
+	desc.configurable = !!desc.configurable;
 
-    if ('value' in desc || desc.initializer) {
-        desc.writable = true;
-    }
+	if ('value' in desc || desc.initializer) {
+		desc.writable = true;
+	}
 
-    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-        return decorator(target, property, desc) || desc;
-    }, desc);
+	desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+		return decorator(target, property, desc) || desc;
+	}, desc);
 
-    if (context && desc.initializer !== void 0) {
-        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-        desc.initializer = undefined;
-    }
+	if (context && desc.initializer !== void 0) {
+		desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+		desc.initializer = undefined;
+	}
 
-    if (desc.initializer === void 0) {
-        Object['define' + 'Property'](target, property, desc);
-        desc = null;
-    }
+	if (desc.initializer === void 0) {
+		Object['define' + 'Property'](target, property, desc);
+		desc = null;
+	}
 
-    return desc;
+	return desc;
 }
 
 function _initializerWarningHelper(descriptor, context) {
-    throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
 var Panel = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 = _mobx.action.bound, (_class = function () {
-    _createClass(Panel, [{
-        key: 'updateCanvasSize',
-        value: function updateCanvasSize(dimensions) {
-            this.canvasWidth = dimensions.width;
-            this.canvasHeight = dimensions.height;
-        }
+	_createClass(Panel, [{
+		key: 'updateCanvasSize',
+		value: function updateCanvasSize(dimensions) {
+			this.canvasWidth = dimensions.width;
+			this.canvasHeight = dimensions.height;
+		}
 
-        // drawing state
-        // immutable
+		// drawing state
+		// immutable
 
-    }, {
-        key: 'draw',
-        value: function draw() {
-            this.isDrawing = true;
-        }
-    }, {
-        key: 'pause',
-        value: function pause() {
-            this.isDrawing = false;
-        }
+	}, {
+		key: 'draw',
+		value: function draw() {
+			this.isDrawing = true;
+		}
+	}, {
+		key: 'pause',
+		value: function pause() {
+			this.isDrawing = false;
+		}
 
-        // UI state
+		// UI state
 
-    }, {
-        key: 'selectTab',
-        value: function selectTab(tab) {
-            this.currTab = tab;
-        }
+	}, {
+		key: 'selectTab',
+		value: function selectTab(tab) {
+			this.currTab = tab;
+		}
 
-        // settings
+		// settings
 
-    }, {
-        key: 'setInnerCircleSizePercentage',
-        value: function setInnerCircleSizePercentage(value) {
-            this.innerCircleSizePercentage = value;
-        }
-    }, {
-        key: 'setPointFromCenterPercentage',
-        value: function setPointFromCenterPercentage(value) {
-            this.pointFromCenterPercentage = value;
-        }
-    }, {
-        key: 'setSpeed',
-        value: function setSpeed(value) {
-            this.speed = value;
-        }
-    }, {
-        key: 'outerRadiusInPixels',
-        get: function get() {
-            return this.canvasWidth / 2 - 20;
-        }
-    }, {
-        key: 'innerRadiusInPixels',
-        get: function get() {
-            return parseInt(this.outerRadiusInPixels / 100 * this.innerCircleSizePercentage, 10);
-        }
+	}, {
+		key: 'setInnerCircleSizePercentage',
+		value: function setInnerCircleSizePercentage(value) {
+			this.innerCircleSizePercentage = value;
+		}
+	}, {
+		key: 'setPointFromCenterPercentage',
+		value: function setPointFromCenterPercentage(value) {
+			this.pointFromCenterPercentage = value;
+		}
+	}, {
+		key: 'setSpeed',
+		value: function setSpeed(value) {
+			this.speed = value;
+		}
+	}, {
+		key: 'pointFromCenterInPixels',
+		get: function get() {
+			var px = parseInt(this.innerRadiusInPixels / 100 * this.pointFromCenterPercentage, 10);
+			console.log(px, this.innerRadiusInPixels, this.pointFromCenterPercentage);
+			return px;
+		}
+	}, {
+		key: 'outerRadiusInPixels',
+		get: function get() {
+			return this.canvasWidth / 2 - 20;
+		}
+	}, {
+		key: 'innerRadiusInPixels',
+		get: function get() {
+			return parseInt(this.outerRadiusInPixels / 100 * this.innerCircleSizePercentage, 10);
+		}
 
-        // exceedingly crumby way of determining when we need to stop the spirograph
+		// exceedingly crumby way of determining when we need to stop the spirograph
 
-    }, {
-        key: 'maxLoops',
-        get: function get() {
-            console.log(this.innerRadiusInPixels, this.outerRadiusInPixels);
-            return this.innerRadiusInPixels / _utils2.default.getGreatestCommonDivisor(this.outerRadiusInPixels, this.innerRadiusInPixels);
-        }
+	}, {
+		key: 'maxLoops',
+		get: function get() {
+			var maxLoops = this.innerRadiusInPixels / _utils2.default.getGreatestCommonDivisor(this.outerRadiusInPixels, this.innerRadiusInPixels);
+			return maxLoops;
+		}
 
-        // @observable pointFromCenterInPixels = null;
+		// our constructor
 
-        // our constructor
+	}]);
 
-    }]);
+	function Panel(store, params) {
+		var _this = this;
 
-    function Panel(store, params) {
-        var _this = this;
+		var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _nodeUuid2.default.v4();
 
-        var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _nodeUuid2.default.v4();
+		_classCallCheck(this, Panel);
 
-        _classCallCheck(this, Panel);
+		this.id = null;
+		this.store = null;
 
-        this.id = null;
-        this.store = null;
+		_initDefineProp(this, 'canvasWidth', _descriptor, this);
 
-        _initDefineProp(this, 'canvasWidth', _descriptor, this);
+		_initDefineProp(this, 'canvasHeight', _descriptor2, this);
 
-        _initDefineProp(this, 'canvasHeight', _descriptor2, this);
+		_initDefineProp(this, 'isDrawing', _descriptor3, this);
 
-        _initDefineProp(this, 'isDrawing', _descriptor3, this);
+		_initDefineProp(this, 'currTab', _descriptor4, this);
 
-        _initDefineProp(this, 'currTab', _descriptor4, this);
+		_initDefineProp(this, 'innerCircleSizePercentage', _descriptor5, this);
 
-        _initDefineProp(this, 'innerCircleSizePercentage', _descriptor5, this);
+		_initDefineProp(this, 'pointFromCenterPercentage', _descriptor6, this);
 
-        _initDefineProp(this, 'pointFromCenterPercentage', _descriptor6, this);
+		_initDefineProp(this, 'speed', _descriptor7, this);
 
-        _initDefineProp(this, 'speed', _descriptor7, this);
+		_initDefineProp(this, 'lineThickness', _descriptor8, this);
 
-        _initDefineProp(this, 'lineThickness', _descriptor8, this);
+		_initDefineProp(this, 'lineTransparency', _descriptor9, this);
 
-        _initDefineProp(this, 'lineTransparency', _descriptor9, this);
+		_initDefineProp(this, 'lineColorHex', _descriptor10, this);
 
-        _initDefineProp(this, 'lineColorHex', _descriptor10, this);
+		_initDefineProp(this, 'lineColor', _descriptor11, this);
 
-        _initDefineProp(this, 'lineColor', _descriptor11, this);
+		this.store = store;
+		this.id = id;
 
-        this.store = store;
-        this.id = id;
+		_lodash2.default.each(Object.keys(params), function (key) {
+			_this[key] = params[key];
+		});
+	}
 
-        _lodash2.default.each(Object.keys(params), function (key) {
-            _this[key] = params[key];
-        });
-    }
-
-    return Panel;
+	return Panel;
 }(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'canvasWidth', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 0;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 0;
+	}
 }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'canvasHeight', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 0;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 0;
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'updateCanvasSize', [_dec], Object.getOwnPropertyDescriptor(_class.prototype, 'updateCanvasSize'), _class.prototype), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'isDrawing', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return false;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return false;
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'draw', [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, 'draw'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'pause', [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, 'pause'), _class.prototype), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'currTab', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return '';
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return '';
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'selectTab', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'selectTab'), _class.prototype), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, 'innerCircleSizePercentage', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 50;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 50;
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'setInnerCircleSizePercentage', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'setInnerCircleSizePercentage'), _class.prototype), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, 'pointFromCenterPercentage', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 50;
-    }
-}), _applyDecoratedDescriptor(_class.prototype, 'setPointFromCenterPercentage', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'setPointFromCenterPercentage'), _class.prototype), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, 'speed', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 150;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 50;
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'setPointFromCenterPercentage', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'setPointFromCenterPercentage'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'pointFromCenterInPixels', [_mobx.computed], Object.getOwnPropertyDescriptor(_class.prototype, 'pointFromCenterInPixels'), _class.prototype), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, 'speed', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return 150;
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'setSpeed', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'setSpeed'), _class.prototype), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, 'lineThickness', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 1;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 1;
+	}
 }), _descriptor9 = _applyDecoratedDescriptor(_class.prototype, 'lineTransparency', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return 0.5;
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return 0.5;
+	}
 }), _descriptor10 = _applyDecoratedDescriptor(_class.prototype, 'lineColorHex', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return '#0044cc';
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return '#0044cc';
+	}
 }), _descriptor11 = _applyDecoratedDescriptor(_class.prototype, 'lineColor', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return {
-            r: 50,
-            g: 150,
-            b: 255
-        };
-    }
+	enumerable: true,
+	initializer: function initializer() {
+		return {
+			r: 50,
+			g: 150,
+			b: 255
+		};
+	}
 }), _applyDecoratedDescriptor(_class.prototype, 'outerRadiusInPixels', [_mobx.computed], Object.getOwnPropertyDescriptor(_class.prototype, 'outerRadiusInPixels'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'innerRadiusInPixels', [_mobx.computed], Object.getOwnPropertyDescriptor(_class.prototype, 'innerRadiusInPixels'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'maxLoops', [_mobx.computed], Object.getOwnPropertyDescriptor(_class.prototype, 'maxLoops'), _class.prototype)), _class));
 exports.default = Panel;
 
@@ -16037,7 +16053,7 @@ module.exports={
         "spec": ">=6.0.0 <7.0.0",
         "type": "range"
       },
-      "C:\\Users\\bkeen\\spirograph\\react-mobx\\node_modules\\browserify-sign"
+      "C:\\Users\\bkeen\\spirograph-react-mobx\\node_modules\\browserify-sign"
     ]
   ],
   "_from": "elliptic@>=6.0.0 <7.0.0",
@@ -16072,7 +16088,7 @@ module.exports={
   "_shasum": "e4c81e0829cf0a65ab70e998b8232723b5c1bc48",
   "_shrinkwrap": null,
   "_spec": "elliptic@^6.0.0",
-  "_where": "C:\\Users\\bkeen\\spirograph\\react-mobx\\node_modules\\browserify-sign",
+  "_where": "C:\\Users\\bkeen\\spirograph-react-mobx\\node_modules\\browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"

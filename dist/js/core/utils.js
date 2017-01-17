@@ -16,10 +16,6 @@ var getGreatestCommonDivisor = function getGreatestCommonDivisor(a, b) {
 	return a;
 };
 
-var getPointFromCenterInPixels = function getPointFromCenterInPixels(innerRadiusInPixels, pointFromCenterPercentage) {
-	return parseInt(innerRadiusInPixels / 100 * pointFromCenterPercentage, 10);
-};
-
 // const getLineTransparency = () => {
 // 	var lineTransparency = parseFloat($(this.$lineTransparency).val());
 // 	return lineTransparency.toFixed(2);
@@ -27,7 +23,6 @@ var getPointFromCenterInPixels = function getPointFromCenterInPixels(innerRadius
 
 
 exports.default = {
-	getPointFromCenterInPixels: getPointFromCenterInPixels,
 	getGreatestCommonDivisor: getGreatestCommonDivisor
 };
 //# sourceMappingURL=utils.js.map
