@@ -2,3 +2,4 @@ node_modules/
 .sass-cache/
 .vscode/settings.json
 dist/
+.vscode/
