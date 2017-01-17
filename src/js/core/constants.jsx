@@ -14,6 +14,7 @@ export default {
         }
     },
 
+    // the panels that show up in the app on load
     DEFAULT_PANEL_CUSTOMIZATIONS: [
         {
             speed: 50,
