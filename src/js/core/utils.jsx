@@ -16,7 +16,6 @@ const getGreatestCommonDivisor = (a, b) => {
 // 	return lineTransparency.toFixed(2);
 // }
 
-
 export default {
 	getGreatestCommonDivisor
 };

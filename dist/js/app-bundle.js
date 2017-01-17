@@ -902,7 +902,6 @@ var getGreatestCommonDivisor = function getGreatestCommonDivisor(a, b) {
 // 	return lineTransparency.toFixed(2);
 // }
 
-
 exports.default = {
 	getGreatestCommonDivisor: getGreatestCommonDivisor
 };
