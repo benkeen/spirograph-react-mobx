@@ -27,14 +27,24 @@ export default {
             pointFromCenterPercentage: 50,
             innerCircleSizePercentage: 50,
             lineTransparency: 0.2,
-            lineColorHex: "#10ad00"
+            lineColorHex: "#10ad00",
+            lineColor: {
+                r: 220,
+                g: 5,
+                b: 15
+            }
         },
         {
             speed: 250,
             pointFromCenterPercentage: 88,
             innerCircleSizePercentage: 60,
             lineThickness: 1,
-            lineColorHex: "#bf0404"
+            lineColorHex: "#bf0404",
+            lineColor: {
+                r: 20,
+                g: 15,
+                b: 220
+            }
         }
     ]
 

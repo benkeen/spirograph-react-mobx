@@ -1,24 +1,22 @@
 import React from 'react';
 
 
-// convert this
 class Header extends React.Component {
     render () {
+        const { drawAll, addPanel } = this.props;
+
         return (
             <header id="navbar">
                 <div className="navbar">
                     <div className="navbar-inner">
                         <div style={{ width: 'auto' }} className="container">
-                            <a href="#" className="brand">Spirograph <span>/</span> <span id="frameworkName">React, MobX</span></a>
+                            <a href="#" className="brand">Spirograph</a>
                             <div className="nav-collapse">
-                                <ul className="nav">
-                                    <li className="active"><a href="#">Home</a></li>
-                                    <li><a href="https://github.com/benkeen/spirograph">Github</a></li>
-                                </ul>
                                 <ul className="nav pull-right">
+                                    <li><a href="https://github.com/benkeen/spirograph-react-mobx">Github</a></li>
                                     <li className="divider-vertical" />
-                                    <li><a href="#" id="drawAll">Draw all</a></li>
-                                    <li><a href="#" id="addSpirograph">Add &raquo;</a></li>
+                                    <li><a href="#" onClick={(e) => drawAll()}>Draw all</a></li>
+                                    <li><a href="#" onClick={(e) => addPanel()}>Add &raquo;</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 /**
- * General helper methods.
+ * General helpers.
  */
 
 const getGreatestCommonDivisor = (a, b) => {
@@ -11,10 +11,6 @@ const getGreatestCommonDivisor = (a, b) => {
 	return a;
 }
 
-// const getLineTransparency = () => {
-// 	var lineTransparency = parseFloat($(this.$lineTransparency).val());
-// 	return lineTransparency.toFixed(2);
-// }
 
 export default {
 	getGreatestCommonDivisor

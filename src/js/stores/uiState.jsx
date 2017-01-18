@@ -1,6 +1,8 @@
 import { observable, action, computed, useStrict } from 'mobx';
 import $ from 'jquery';
+import _ from 'lodash';
 import Panel from './panel';
+import C from '../core/constants';
 
 useStrict(true);
 
@@ -9,24 +11,24 @@ useStrict(true);
 class UIStateStore {
     @observable panels = [];
 
-    // a lot of the computation of the spirographs need to know the height
+    // a lot of the computation of the spirographs need to know the width/height of the available canvas space
+    // this would 
     constructor() {
         $(window).resize(() => {
-//            this.updateWindowDimensions();
+            // ...
         });
     }
 
-    @action addPanel (params) {
+    @action.bound addPanel (params = C.PANEL_DEFAULTS) {
         const newPanel = new Panel(this, params);
         this.panels.push(newPanel);
     }
 
-    @action removePanel (panelID) {
-        console.log(panelID);
-        //this.panels.splice(this.panels.indexOf(panel), 1);
+    @action.bound removePanel (panelID) {
+        this.panels.splice(_.findIndex(this.panels, { id: panelID }), 1);
     }
 
-    @action drawAll () {
+    @action.bound drawAll () {
         _.each(this.panels, (panel) => { panel.draw() });
     }
 }

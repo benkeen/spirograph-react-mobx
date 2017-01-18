@@ -42,22 +42,17 @@ class Panel {
 	}
 	@computed get pointFromCenterInPixels () {
 		let px = parseInt((this.innerRadiusInPixels / 100) * this.pointFromCenterPercentage, 10);
-		console.log(px, this.innerRadiusInPixels, this.pointFromCenterPercentage);
 		return px;
 	}
 
 	@observable speed = 150;
 	@action setSpeed (value) {
 		this.speed = value;
-	}    
+	}
 	@observable lineThickness = 1;
 	@observable lineTransparency = 0.5;
-	@observable lineColorHex = '#0044cc';
-	@observable lineColor = {
-		r: 50,
-		g: 150,
-		b: 255
-	};
+	@observable lineColorHex = null;
+	@observable lineColor = null;
 
 	@computed get outerRadiusInPixels () {
 		return (this.canvasWidth / 2) - 20;
@@ -72,6 +67,11 @@ class Panel {
 		let maxLoops = this.innerRadiusInPixels / utils.getGreatestCommonDivisor(this.outerRadiusInPixels, this.innerRadiusInPixels);
 		return maxLoops;
 	}
+
+// const getLineTransparency = () => {
+// 	var lineTransparency = parseFloat($(this.$lineTransparency).val());
+// 	return lineTransparency.toFixed(2);
+// }
 
 	// our constructor
 	constructor(store, params, id = uuid.v4()) {

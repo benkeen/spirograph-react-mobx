@@ -23,7 +23,7 @@ class App extends React.Component {
         const { store } = this.props;
         return (
             <div className="body-content">
-                <Header store={store} />
+                <Header addPanel={store.addPanel} drawAll={store.drawAll} />
                 <Panels store={store} />
             </div>
         )
